@@ -1,6 +1,6 @@
 import pytest
 
-from .solve_composite_number import is_number_composite_3_5, is_number_composite_of
+from python.composite_number.solve import is_number_composite_3_5, is_number_composite_of
 
 @pytest.mark.parametrize(
   "num",
