@@ -15,13 +15,16 @@ def is_number_composite_3_5(num: int) -> bool:
 
 # Dynamic solution - algo: O(n); memory: O(n)
 
-mem_composite_3_5_dynamic: dict[int, bool] = {}
+g_mem_composite_3_5_dynamic: dict[int, bool] = {}
 
 def is_number_composite_3_5_dynamic(num: int) -> bool:
   if num <= 0:
     return False
+  if num in g_mem_composite_3_5_dynamic:
+    return g_mem_composite_3_5_dynamic[num]
+
   if (num % 3 == 0) or (num % 5 == 0):
-    mem_composite_3_5_dynamic[num] = True
+    g_mem_composite_3_5_dynamic[num] = True
     return True
 
   if num >= 5:
@@ -29,7 +32,7 @@ def is_number_composite_3_5_dynamic(num: int) -> bool:
   if num >= 3:
     return is_number_composite_3_5(num - 3)
 
-  mem_composite_3_5_dynamic[num] = False
+  g_mem_composite_3_5_dynamic[num] = False
   return False
 
 # Classis solution - algo: O(2^n/max); memory: O(1)
